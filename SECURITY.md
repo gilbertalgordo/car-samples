@@ -20,3 +20,14 @@ Tell them where to go, how often they can expect to get an update on a
 reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
 https://gist.github.com/gilbertalgordo
+[![pages-build-deployment](https://github.com/gilbertalgordo/car-samples/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/pages/pages-build-deployment)
+
+[![PSScriptAnalyzer](https://github.com/gilbertalgordo/car-samples/actions/workflows/powershell.yml/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/powershell.yml)
+
+[![CodeQL](https://github.com/gilbertalgordo/car-samples/actions/workflows/codeql.yml/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/codeql.yml)
+
+[![Microsoft Defender For Devops](https://github.com/gilbertalgordo/car-samples/actions/workflows/defender-for-devops.yml/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/defender-for-devops.yml)
+
+[![CodeQL](https://github.com/gilbertalgordo/car-samples/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/github-code-scanning/codeql)
+
+[![Build and Deploy to GKE](https://github.com/gilbertalgordo/car-samples/actions/workflows/google.yml/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/google.yml)
