@@ -31,3 +31,5 @@ https://gist.github.com/gilbertalgordo
 [![CodeQL](https://github.com/gilbertalgordo/car-samples/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/github-code-scanning/codeql)
 
 [![Build and Deploy to GKE](https://github.com/gilbertalgordo/car-samples/actions/workflows/google.yml/badge.svg)](https://github.com/gilbertalgordo/car-samples/actions/workflows/google.yml)
+# Pay Transparency
+https://acrobat.adobe.com/link/track?uri=urn:aaid:scds:US:3904d473-0113-3d87-82e8-1c8faf4c8a8d
