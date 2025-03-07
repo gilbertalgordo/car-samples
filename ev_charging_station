@@ -1,0 +1,24 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+charging_stations = {
+    1: {"location": "123 Main St", "status": "Available"},
+    2: {"location": "456 Elm St", "status": "Occupied"},
+    3: {"location": "789 Oak St", "status": "Available"}
+}
+
+@app.route('/stations', methods=['GET'])
+def get_stations():
+    return jsonify(charging_stations)
+
+@app.route('/station/<int:station_id>', methods=['GET'])
+def get_station(station_id):
+    station = charging_stations.get(station_id)
+    if station:
+        return jsonify(station)
+    else:
+        return jsonify({"error": "Station not found"}), 404
+
+if __name__ == '__main__':
+    app.run(debug=True)
