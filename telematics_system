@@ -1,0 +1,26 @@
+import json
+import requests
+import random
+import time
+
+def get_vehicle_data():
+    data = {
+        "vehicle_id": "123ABC",
+        "speed": random.randint(0, 120), # Speed in km/h
+        "location": {"lat": random.uniform(-90, 90), "lon": random.uniform(-180, 180)},
+        "fuel_level": random.uniform(0, 100), # Fuel level in %
+        "engine_temp": random.uniform(70, 100) # Temperature in Celsius
+    }
+    return data
+
+def send_data_to_server(data):
+    url = "https://example-telematics-server.com/vehicle_data"
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, data=json.dumps(data), headers=headers)
+    return response.status_code
+
+while True:
+    vehicle_data = get_vehicle_data()
+    status_code = send_data_to_server(vehicle_data)
+    print(f"Data sent with status code: {status_code}")
+    time.sleep(10) # Send data every 10 seconds
