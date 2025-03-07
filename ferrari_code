@@ -1,0 +1,72 @@
+import numpy as np
+import pandas as pd
+
+# Constants and Parameters for Ferrari Racing Simulation
+DESIRED_SPEED = 250  # Desired speed in km/h for a racing scenario
+DESIRED_FUEL_EFFICIENCY = 0.25  # Desired fuel efficiency in L/km
+OPTIMAL_TIRE_PRESSURE = 32  # Optimal tire pressure in PSI
+RACE_DURATION = 3600  # Race duration in seconds (1 hour)
+TIME_STEP = 0.1  # Time step for simulation in seconds
+
+# PID controller parameters for speed control
+Kp_speed = 1.5
+Ki_speed = 0.05
+Kd_speed = 0.02
+
+# PID controller parameters for fuel management
+Kp_fuel = 0.7
+Ki_fuel = 0.03
+Kd_fuel = 0.015
+
+# Simulated sensor data function
+def simulate_sensor_data():
+    gps_speed = np.random.uniform(200, 300)  # Speed in km/h
+    speed_data = gps_speed + np.random.normal(0, 1.5)
+    fuel_data = np.random.uniform(20, 100)  # Fuel level in liters
+    tire_pressure_data = np.random.uniform(28, 36, size=4)  # Tire pressure in PSI
+    weather_data = np.random.uniform(10, 40)  # Temperature in Celsius
+    return gps_speed, speed_data, fuel_data, tire_pressure_data, weather_data
+
+# PID control function
+def pid_control(set_point, current_value, Kp, Ki, Kd, integral, previous_error, dt):
+    error = set_point - current_value
+    integral += error * dt
+    derivative = (error - previous_error) / dt
+    output = Kp * error + Ki * integral + Kd * derivative
+    return output, integral, error
+
+# Main control loop for simulation
+def control_loop():
+    dt = TIME_STEP
+    integral_speed = 0
+    previous_error_speed = 0
+    integral_fuel = 0
+    previous_error_fuel = 0
+
+    for _ in range(int(RACE_DURATION / dt)):
+        gps_speed, speed_data, fuel_data, tire_pressure_data, weather_data = simulate_sensor_data()
+
+        # Speed control using PID
+        speed_output, integral_speed, previous_error_speed = pid_control(
+            DESIRED_SPEED, speed_data, Kp_speed, Ki_speed, Kd_speed, integral_speed, previous_error_speed, dt
+        )
+
+        # Fuel management using PID
+        fuel_efficiency = gps_speed / fuel_data if fuel_data > 0 else 0
+        fuel_output, integral_fuel, previous_error_fuel = pid_control(
+            DESIRED_FUEL_EFFICIENCY, fuel_efficiency, Kp_fuel, Ki_fuel, Kd_fuel, integral_fuel, previous_error_fuel, dt
+        )
+
+        # Tire pressure management (simple adjustment, no control loop)
+        tire_pressure_adjustments = [OPTIMAL_TIRE_PRESSURE - pressure for pressure in tire_pressure_data]
+
+        # Displaying control outputs (for simulation purposes, print them)
+        print(f"Time: {_ * dt:.2f} s")
+        print(f"Speed Control Output: {speed_output:.2f}")
+        print(f"Fuel Management Output: {fuel_output:.2f}")
+        print(f"Tire Pressure Adjustments: {tire_pressure_adjustments}")
+        print(f"Weather Data: {weather_data:.2f} °C")
+        print("---")
+
+# Run the control loop
+control_loop()
