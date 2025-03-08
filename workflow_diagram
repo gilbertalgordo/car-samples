@@ -1,0 +1,44 @@
+1. Sensor Data Acquisition
++-----------------------------------------------+
+| Sensors collect real-time data:               |
+| - Engine Temperature                          |
+| - Fuel Level                                  |
+| - Speed                                       |
+| - RPM                                         |
++--------------------+--------------------------+
+                     |
+                     v
+2. Data Processing
++-----------------------------------------------+
+| Data is sent to the AI Control Unit and       |
+| Quantum Control Unit                          |
++--------------------+--------------------------+
+                     |
+                     v
+3. Quantum Processing
++-----------------------------------------------+
+| Quantum Control Unit processes data to decide |
+| focus (e.g., optimize speed, efficiency, or   |
+| engine performance)                           |
++--------------------+--------------------------+
+                     |
+                     v
+4. AI Decision Making
++-----------------------------------------------+
+| AI Control Unit makes real-time decisions     |
+| based on sensor data and quantum output       |
++--------------------+--------------------------+
+                     |
+                     v
+5. IoT Communication
++-----------------------------------------------+
+| Data is sent to cloud services for further    |
+| analysis and updates                          |
++-----------------------------------------------+
+                     |
+                     v
+6. Actuator Control
++-----------------------------------------------+
+| Actuators adjust vehicle systems based on     |
+| AI decisions                                  |
++--------------------+--------------------------+
